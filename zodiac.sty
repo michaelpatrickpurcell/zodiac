@@ -1,0 +1,236 @@
+\tikzset{onestar/.pic={
+\node[draw=black, circle, inner sep=0.75pt, line width=0.9mm] at (0,0)  {\normalsize\phantom{1}};
+}}
+
+\tikzset{twostar/.pic={
+\node[text=black, rotate=45, inner sep=0pt] at (0,0) {\rule{6mm}{1mm}};
+\node[text=black, rotate=-45, inner sep=0pt] at (0,0) {\rule{6mm}{1mm}};
+}}
+
+\tikzset{threestar/.pic={
+\node[inner sep=0pt] at (0,0) {};
+\node[regular polygon, regular polygon sides=3, draw==black, line width=0.9mm, inner sep=1.0pt] at (0,-0.7mm) {\normalsize\phantom{.}};
+}}
+
+\tikzset{fourstar/.pic={
+\node[draw=black, fill=black, diamond, inner sep=2.125pt, line width=0.9mm] at (0,0) {\normalsize\phantom{.}};
+}}
+
+\tikzset{fivestar/.pic={
+\node[inner sep=0pt] at (0,0) {};
+\node[star, star points=5, star point ratio=2, fill=white, inner sep=5pt, draw, ultra thick] at (0,-0.2mm) {\normalsize\phantom{.}};
+}}
+
+\tikzset{sixstar/.pic={
+\node[regular polygon, regular polygon sides=6, fill=black, inner sep=3.2pt] at (0,0) {\normalsize\phantom{.}};
+}}
+
+\newcommand{\drawonestar}{\scalebox{0.75}{\tikz{\pic {onestar};}}}
+\newcommand{\drawtwostar}{\scalebox{0.75}{\tikz{\pic {twostar};}}}
+\newcommand{\drawthreestar}{\raisebox{0.0ex}{\scalebox{0.75}{\tikz{\pic {threestar};}}}}
+\newcommand{\drawfourstar}{\scalebox{0.75}{\tikz{\pic {fourstar};}}}
+\newcommand{\drawfivestar}{\scalebox{0.75}{\tikz{\pic {fivestar};}}}
+\newcommand{\drawsixstar}{\raisebox{0.125ex}{\scalebox{0.75}{\tikz{\pic {sixstar};}}}}
+
+\tikzset{pics/die1/.style 2 args={code={
+	\huge
+    	\node[draw, black, line width=0.065em, minimum size=1em, rounded corners=1mm, fill=#1] {};
+    	\node[draw=#2, fill=#2, circle, inner sep=0.07em] {};
+	}
+}}
+
+\tikzset{pics/die2/.style 2 args={code={
+	\huge
+    	\node[draw, black, line width=0.065em, minimum size=1em, rounded corners=1mm, fill=#1] {};
+    	\node[draw=#2, fill=black, circle, inner sep=0.07em, fill=#2] at (0.245em, 0.245em) {};
+    	\node[draw=#2, fill=black, circle, inner sep=0.07em, fill=#2] at (-0.245em,  -0.245em) {};
+	}
+}}
+
+\tikzset{pics/die3/.style 2 args={code={
+	\huge
+    	\node[draw, black, line width=0.065em, minimum size=1em, rounded corners=1mm, fill=#1] {};
+    	\node[draw=#2, fill=black, circle, inner sep=0.07em, fill=#2] {};
+    	\node[draw=#2, fill=black, circle, inner sep=0.07em, fill=#2] at (0.245em, 0.245em) {};
+    	\node[draw=#2, fill=black, circle, inner sep=0.07em, fill=#2] at (-0.245em,  -0.245em) {};
+	}
+}}
+
+\tikzset{pics/die4/.style 2 args={code={
+	\huge
+    	\node[draw, black, line width=0.065em, minimum size=1em, rounded corners=1mm, fill=#1] {};
+    	\node[draw=#2, fill=black, circle, inner sep=0.07em, fill=#2] at (0.245em, 0.245em) {};
+    	\node[draw=#2, fill=black, circle, inner sep=0.07em, fill=#2] at (0.245em, -0.245em) {};
+    	\node[draw=#2, fill=black, circle, inner sep=0.07em, fill=#2] at (-0.245em, 0.245em) {};
+    	\node[draw=#2, fill=black, circle, inner sep=0.07em, fill=#2] at (-0.245em,  -0.245em) {};
+	}
+}}
+
+\tikzset{pics/die5/.style 2 args={code={
+	\huge
+    	\node[draw, black, line width=0.065em, minimum size=1em, rounded corners=1mm, fill=#1] {};
+    	\node[draw=#2, fill=black, circle, inner sep=0.07em, fill=#2] {};
+    	\node[draw=#2, fill=black, circle, inner sep=0.07em, fill=#2] at (0.245em, 0.245em) {};
+    	\node[draw=#2, fill=black, circle, inner sep=0.07em, fill=#2] at (-0.245em,  -0.245em) {};
+    	\node[draw=#2, fill=black, circle, inner sep=0.07em, fill=#2] at (0.245em, -0.245em) {};
+    	\node[draw=#2, fill=black, circle, inner sep=0.07em, fill=#2] at (-0.245em,  0.245em) {};
+	}
+}}
+
+\tikzset{pics/die6/.style 2 args={code={
+	\huge
+    	\node[draw, black, line width=0.065em, minimum size=1em, rounded corners=1mm, fill=#1] {};
+    \node[draw=#2, fill=black, circle, inner sep=0.07em, fill=#2] at (0.245em, 0.245em) {};
+    	\node[draw=#2, fill=black, circle, inner sep=0.07em, fill=#2] at (-0.245em,  -0.245em) {};
+    	\node[draw=#2, fill=black, circle, inner sep=0.07em, fill=#2] at (0.245em, -0.245em) {};
+    	\node[draw=#2, fill=black, circle, inner sep=0.07em, fill=#2] at (-0.245em,  0.245em) {};
+    	\node[draw=#2, fill=black, circle, inner sep=0.07em, fill=#2] at (-0.245em,  0) {};
+    	\node[draw=#2, fill=black, circle, inner sep=0.07em, fill=#2] at (0.245em, 0) {};
+	}
+}}
+
+\tikzset{numberdie/.pic={
+	\huge
+    	\node[draw, black, line width=0.065em, minimum size=1em, rounded corners=1mm] {};
+    	\node {{\setmainfont{Roboto-Bold}\LARGE #1}};
+	}
+}
+
+\newcommand{\dieone}{\tikz[baseline=-0.35em]{\pic {die1={white}{black}};}}
+\newcommand{\dietwo}{\tikz[baseline=-0.35em]{\pic {die2={white}{black}};}}
+\newcommand{\diethree}{\tikz[baseline=-0.35em]{\pic {die3={white}{black}};}}
+\newcommand{\diefour}{\tikz[baseline=-0.35em]{\pic {die4={white}{black}};}}
+\newcommand{\diefive}{\tikz[baseline=-0.35em]{\pic {die5={white}{black}};}}
+\newcommand{\diesix}{\tikz[baseline=-0.35em]{\pic {die6={white}{black}};}}
+
+\newcommand{\dieoneblack}{\tikz[baseline=-0.35em]{\pic {die1={black}{white}};}}
+\newcommand{\dietwoblack}{\tikz[baseline=-0.35em]{\pic {die2={black}{white}};}}
+\newcommand{\diethreeblack}{\tikz[baseline=-0.35em]{\pic {die3={black}{white}};}}
+\newcommand{\diefourblack}{\tikz[baseline=-0.35em]{\pic {die4={black}{white}};}}
+\newcommand{\diefiveblack}{\tikz[baseline=-0.35em]{\pic {die5={black}{white}};}}
+\newcommand{\diesixblack}{\tikz[baseline=-0.35em]{\pic {die6={black}{white}};}}
+
+\newcommand{\dienumber}[1]{\tikz[baseline=-0.35em]{\pic {numberdie={#1}};}}
+
+\tikzset{penti/.pic={
+	\foreach \i in {-10,-5,0,5,10}
+		\node[draw, minimum width=5mm, minimum height=5mm, inner sep=0pt, very thick] at (0,\i mm) {};
+}}
+
+\tikzset{pentf/.pic={
+	\foreach \i in {-5,0,5}
+		\node[draw, minimum width=5mm, minimum height=5mm, inner sep=0pt, very thick] at (0,\i mm) {};
+	\node[draw, minimum width=5mm, minimum height=5mm, inner sep=0pt, very thick] at (5mm,5mm) {};
+	\node[draw, minimum width=5mm, minimum height=5mm, inner sep=0pt, very thick] at (-5mm,0) {};
+}}
+
+\tikzset{pentl/.pic={
+	\foreach \i in {-5,0,5,10}
+		\node[draw, minimum width=5mm, minimum height=5mm, inner sep=0pt, very thick] at (0,\i mm) {};
+	\node[draw, minimum width=5mm, minimum height=5mm, inner sep=0pt, very thick] at (5mm,-5mm) {};
+}}
+
+\tikzset{pentn/.pic={
+	\foreach \i in {0,5,10}
+		\node[draw, minimum width=5mm, minimum height=5mm, inner sep=0pt, very thick] at (0,\i mm) {};
+	\node[draw, minimum width=5mm, minimum height=5mm, inner sep=0pt, very thick] at (-5mm,0) {};
+	\node[draw, minimum width=5mm, minimum height=5mm, inner sep=0pt, very thick] at (-5mm,-5mm) {};
+}}
+
+\tikzset{pentp/.pic={
+	\foreach \i in {-5,0,5}
+		\node[draw, minimum width=5mm, minimum height=5mm, inner sep=0pt, very thick] at (0,\i mm) {};
+	\node[draw, minimum width=5mm, minimum height=5mm, inner sep=0pt, very thick] at (-5mm,0) {};
+	\node[draw, minimum width=5mm, minimum height=5mm, inner sep=0pt, very thick] at (-5mm,5mm) {};
+}}
+
+\tikzset{pentt/.pic={
+	\foreach \i in {-5,0,5}
+		\node[draw, minimum width=5mm, minimum height=5mm, inner sep=0pt, very thick] at (0,\i mm) {};
+	\node[draw, minimum width=5mm, minimum height=5mm, inner sep=0pt, very thick] at (-5mm,5mm) {};
+	\node[draw, minimum width=5mm, minimum height=5mm, inner sep=0pt, very thick] at (5mm,5mm) {};
+}}
+
+\tikzset{pentu/.pic={
+	\foreach \i in {-5,0,5}
+		\node[draw, minimum width=5mm, minimum height=5mm, inner sep=0pt, very thick] at (\i mm, 0mm) {};
+	\node[draw, minimum width=5mm, minimum height=5mm, inner sep=0pt, very thick] at (-5mm,5mm) {};
+	\node[draw, minimum width=5mm, minimum height=5mm, inner sep=0pt, very thick] at (5mm,5mm) {};
+}}
+
+\tikzset{pentv/.pic={
+	\foreach \i in {0,5,10}
+		\node[draw, minimum width=5mm, minimum height=5mm, inner sep=0pt, very thick] at (0mm, \i mm) {};
+	\node[draw, minimum width=5mm, minimum height=5mm, inner sep=0pt, very thick] at (5mm,0mm) {};
+	\node[draw, minimum width=5mm, minimum height=5mm, inner sep=0pt, very thick] at (10mm,0mm) {};
+}}
+
+\tikzset{pentw/.pic={
+	\foreach \i in {-5,0}
+		\node[draw, minimum width=5mm, minimum height=5mm, inner sep=0pt, very thick] at (0, \i mm) {};
+	\node[draw, minimum width=5mm, minimum height=5mm, inner sep=0pt, very thick] at (5mm,-5mm) {};
+	\node[draw, minimum width=5mm, minimum height=5mm, inner sep=0pt, very thick] at (-5mm,0) {};
+	\node[draw, minimum width=5mm, minimum height=5mm, inner sep=0pt, very thick] at (-5mm,5mm) {};
+}}
+
+\tikzset{pentx/.pic={
+	\foreach \i in {-5,0,5}
+		\node[draw, minimum width=5mm, minimum height=5mm, inner sep=0pt, very thick] at (0mm, \i mm) {};
+	\node[draw, minimum width=5mm, minimum height=5mm, inner sep=0pt, very thick] at (-5mm,0mm) {};
+	\node[draw, minimum width=5mm, minimum height=5mm, inner sep=0pt, very thick] at (5mm,0mm) {};
+}}
+
+\tikzset{penty/.pic={
+	\foreach \i in {-5,0,5,10}
+		\node[draw, minimum width=5mm, minimum height=5mm, inner sep=0pt, very thick] at (0,\i mm) {};
+	\node[draw, minimum width=5mm, minimum height=5mm, inner sep=0pt, very thick] at (5mm,5mm) {};
+}}
+
+\tikzset{pentz/.pic={
+	\foreach \i in {-5,0,5}
+		\node[draw, minimum width=5mm, minimum height=5mm, inner sep=0pt, very thick] at (0mm, \i mm) {};
+	\node[draw, minimum width=5mm, minimum height=5mm, inner sep=0pt, very thick] at (-5mm,5mm) {};
+	\node[draw, minimum width=5mm, minimum height=5mm, inner sep=0pt, very thick] at (5mm,-5mm) {};
+}}
+
+\tikzset{oneeighthmoon/.pic={
+\begin{scope}
+\clip (0,0) circle (10mm);
+\node[fill=black, circle, minimum width=20mm] at (0, 0) {};
+\node[fill=white, circle, minimum width=20mm] at (-10mm, 0) {};
+\end{scope}
+\node[draw=black, circle, minimum width=20mm, line width=0.4mm] at (0,0) {};
+}}
+
+\tikzset{threeeighthmoon/.pic={
+\begin{scope}
+\clip (0,0) circle (10mm);
+\node[fill=white, circle, minimum width=20mm] at (0, 0) {};
+\node[fill=black, circle, minimum width=20mm] at (10mm, 0) {};
+\end{scope}
+\node[draw=black, circle, minimum width=20mm, line width=0.4mm] at (0,0) {};
+}}
+
+\tikzset{fiveeighthmoon/.pic={
+\begin{scope}
+\clip (0,0) circle (10mm);
+\node[fill=white, circle, minimum width=20mm] at (0, 0) {};
+\node[fill=black, circle, minimum width=20mm] at (-10mm, 0) {};
+\end{scope}
+\node[draw=black, circle, minimum width=20mm, line width=0.4mm] at (0,0) {};
+}}
+
+\tikzset{seveneighthmoon/.pic={
+\begin{scope}
+\clip (0,0) circle (10mm);
+\node[fill=black, circle, minimum width=20mm] at (0, 0) {};
+\node[fill=white, circle, minimum width=20mm] at (10mm, 0) {};
+\end{scope}
+\node[draw=black, circle, minimum width=20mm, line width=0.4mm] at (0,0) {};
+}}
+
+\newcommand{\drawoneeighthmoon}{\tikz{\pic {oneeighthmoon};}}
+\newcommand{\drawthreeeighthmoon}{\tikz{\pic {threeeighthmoon};}}
+\newcommand{\drawfiveeighthmoon}{\tikz{\pic {fiveeighthmoon};}}
+\newcommand{\drawseveneighthmoon}{\tikz{\pic {seveneighthmoon};}}
+
